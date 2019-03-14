@@ -1,3 +1,7 @@
+import java.util.Map;
+
+HashMap<Character,Boolean> keys = new HashMap<Character,Boolean>();
+
 PImage gauche, droite;
 
 int half_width;
@@ -14,6 +18,15 @@ void setup()
   
   half_width = width / 2;
   
+  keys.put('z', false);
+  keys.put('q', false);
+  keys.put('s', false);
+  keys.put('d', false);
+  keys.put('y', false);
+  keys.put('g', false);
+  keys.put('h', false);
+  keys.put('j', false);
+  
   gx = (int)random(0, gauche.width - half_width);
   gy = (int)random(0, gauche.height - height);
   dx = (int)random(0, droite.width - half_width);
@@ -22,6 +35,32 @@ void setup()
 
 void draw()
 {
+  if (keys.get('z') && gy >= speed) {
+    gy -= speed;
+  }
+  if (keys.get('q') && gx >= speed) {
+    gx -= speed;
+  }
+  if (keys.get('s') && gy + height + speed < gauche.height) {
+    gy += speed;
+  }
+  if (keys.get('d') && gx + half_width + speed < gauche.width) {
+    gx += speed;
+  }
+  
+  if (keys.get('y') && dy >= speed) {
+    dy -= speed;
+  }
+  if (keys.get('g') && dx >= speed) {
+    dx -= speed;
+  }
+  if (keys.get('h') && dy + height + speed < droite.height) {
+    dy += speed;
+  }
+  if (keys.get('j') && dx + half_width +speed < droite.width) {
+    dx += speed;
+  }
+  
   PImage portion_g = gauche.get(gx, gy, half_width, height);
   PImage portion_d = droite.get(dx, dy, half_width, height);
   
@@ -30,29 +69,10 @@ void draw()
 }
 
 void keyPressed() {
-  if (key == 'z' && gy >= speed) {
-    gy -= speed;
-  }
-  else if (key == 'q' && gx >= speed) {
-    gx -= speed;
-  }
-  else if (key == 's' && gy + height + speed < gauche.height) {
-    gy += speed;
-  }
-  else if (key == 'd' && gx + half_width + speed < gauche.width) {
-    gx += speed;
-  }
-  
-  if (key == 'y' && dy >= speed) {
-    dy -= speed;
-  }
-  else if (key == 'g' && dx >= speed) {
-    dx -= speed;
-  }
-  else if (key == 'h' && dy + height +speed < droite.height) {
-    dy += speed;
-  }
-  else if (key == 'j' && dx + half_width +speed < droite.width) {
-    dx += speed;
-  }
+  keys.put(key, true);
+}
+
+void keyReleased()
+{
+  keys.put(key, false);
 }
