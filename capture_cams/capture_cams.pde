@@ -2,6 +2,9 @@ import processing.video.*;
 
 Capture leftCam, rightCam;
 
+int idLeft = 7;
+int idRight = 34;
+
 int half_width;
 
 void settings () {
@@ -29,8 +32,8 @@ void setup() {
 
     // The camera can be initialized directly using an element
     // from the array returned by list():
-    leftCam = new Capture(this, cameras[7]);
-    rightCam = new Capture(this, cameras[34]);
+    leftCam = new Capture(this, cameras[idLeft]);
+    rightCam = new Capture(this, cameras[idRight]);
     // Or, the settings can be defined based on the text in the list
     //cam = new Capture(this, 640, 480, "Built-in iSight", 30);
     
@@ -41,12 +44,16 @@ void setup() {
 }
 
 void draw() {
+  background(0);
   if (leftCam.available() == true) {
     leftCam.read();
   }
   if (rightCam.available() == true) {
     rightCam.read();
   }
-  image(leftCam, 0, 0);
-  image(rightCam, half_width, 0);
+  
+  float lHeight = height * leftCam.width / half_width; 
+  float rHeight = height * rightCam.width / half_width;
+  image(leftCam, 0, (height - lHeight) / 2, half_width, lHeight);
+  image(rightCam, half_width, (height - rHeight) / 2, half_width, rHeight);
 }
