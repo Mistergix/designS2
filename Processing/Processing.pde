@@ -16,16 +16,19 @@ void dataVis() {
   ellipse(width/2, (height/4)-5, 100, 100);
   ellipse(width/2, height-(height/4)-5, 100, 100);
 
-  if (btnLeft == 0) {    
+  if (btnLeft == 1) {    
     fill(255);
     ellipse(width/4, (height/2)-5, 100, 100);
-  } else if (btnRight == 0) {    
+  } 
+  if (btnRight == 1) {    
     fill(255);
     ellipse(width-width/4, (height/2)-5, 100, 100);
-  } else if (btnTop == 0) {    
+  } 
+  if (btnTop == 1) {    
     fill(255);
     ellipse(width/2, (height/4)-5, 100, 100);
-  } else if (btnBottom == 0) {    
+  } 
+  if (btnBottom == 1) {    
     fill(255);
     ellipse(width/2, height-(height/4)-5, 100, 100);
   }
