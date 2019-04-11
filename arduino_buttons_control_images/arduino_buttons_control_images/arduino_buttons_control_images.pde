@@ -1,4 +1,3 @@
-import java.util.Map;
 import processing.serial.*;
 
 Serial myPort;
