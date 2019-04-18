@@ -27,10 +27,10 @@ void setup()
   keys.put('h', false);
   keys.put('j', false);
 
-  gx = (int)random(0, gauche.width - half_width);
-  gy = (int)random(0, gauche.height - height);
-  dx = (int)random(0, droite.width - half_width);
-  dy = (int)random(0, droite.height - height);
+  gx = gauche.width - half_width;
+  gy = 0;
+  dx = 0;
+  dy = 0;
 }
 
 void draw()

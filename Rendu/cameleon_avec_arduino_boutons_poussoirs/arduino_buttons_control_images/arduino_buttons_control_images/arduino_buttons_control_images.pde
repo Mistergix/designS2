@@ -27,8 +27,8 @@ void setup()
 
   half_width = width / 2;
 
-  gy = (int)random(0, gauche.height - height);
-  dy = (int)random(0, droite.height - height);
+  gy = height / 2;
+  dy = height / 2;
   
   try
   {
