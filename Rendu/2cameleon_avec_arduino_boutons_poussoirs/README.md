@@ -9,3 +9,6 @@ On connecte une carte Arduino avec 4 boutons. Deux servent à translater la port
 
 + 4 boutons
 + 4 résistances MARRON NOIR ORANGE
+
+Schéma (on a utilisé le même montage qu'avec les servos): 
+![Schéma](https://github.com/Mistergix/designS2/blob/master/Rendu/2cameleon_avec_arduino_boutons_poussoirs/4bouttons.jpg)
