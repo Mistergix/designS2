@@ -5,7 +5,7 @@ Capture leftCam, rightCam;
 int idLeft = 7; // 7;
 int idRight = 34; //34;
 
-int blurCoeff = 1; // /!\ not too high
+int blurCoeff = 3; // /!\ not too high
 
 int half_width;
 
@@ -60,6 +60,7 @@ void draw() {
   float rHeight = height * rightCam.width / half_width;
   
   leftCam.filter(BLUR, blurCoeff);
+  rightCam.filter(BLUR, blurCoeff);
   
   image(leftCam, 0, (height - lHeight) / 2, half_width, lHeight);
   image(rightCam, half_width, (height - rHeight) / 2, half_width, rHeight);
